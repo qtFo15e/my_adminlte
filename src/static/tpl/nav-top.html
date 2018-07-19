@@ -1,0 +1,13 @@
+
+<ul class="nav nav-top" >
+    <% _.forEach( data.nav, function ( child ) { %>
+    <li class="waves-effect" data-id="<%= child.id %>">
+        <a href="javascript:void(0)" >
+            <i class="<%= child.iconClass %>"></i>
+            <span class="item-name"><%= child.name %></span>
+        </a>
+    </li>
+    <%})%>
+</ul>
+
+

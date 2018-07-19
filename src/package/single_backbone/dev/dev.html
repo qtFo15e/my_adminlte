@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="require/require_config.js"></script>
+    <script src="require/require.js"></script>
+</head>
+<body>
+<div id="test">
+    qwewq
+    <button>dasd</button>
+</div>
+<!--<script src="dep/backbone/backbone.js"></script>-->
+<script>
+    require([ "jquery",'underscore',"Backbone" ], function ($, _, Backbone) {
+        console.log( $ )
+
+        var viewMap = {}
+        var single_backbone = ( function (  ) {
+            return function ( params ) {
+                var View = Backbone.View.extend( params )
+
+                View.init = function ( args ) {
+                    var lastView =  viewMap[ $( args.el ).data( "viewID" ) ]
+                    if ( lastView !== undefined ) {
+                        $( args.el ).off()
+                        $( args.el ).empty()
+                        lastView.stopListening();
+                        viewMap[ $( args.el ).data( "viewID" ) ] = null
+                    }
+                    var ID = _.uniqueId()
+                    viewMap [ ID ] = new View( args )
+                    $( args.el ).data( "viewID", ID )
+
+                    return viewMap [ ID ]
+                }
+
+                return View
+            }
+        } )()
+
+        var A = single_backbone( {
+            events: {
+                "click button": function () {
+                    alert(1)
+                }
+            },
+            show: function () {
+                console.log( 111 )
+            },
+            render: function () {
+                $( this.el ).html( "<button>dasd</button>" )
+                return this
+            }
+        } )
+        for ( var i = 0; i <5000; i++ ) {
+            console.log(879)
+            a = A.init( { "el": "#test" } ).render()
+        }
+
+    } )
+</script>
+</body>
+</html>

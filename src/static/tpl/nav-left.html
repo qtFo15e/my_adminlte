@@ -1,0 +1,32 @@
+<ul class="sidebar-menu" data-widget="tree">
+    <%var activedNav = _.find( data.nav, { id: data.id } )
+    _.forEach( activedNav.children, function ( child ) { %>
+    <li class="treeview">
+        <a href="javascript:void(0)" class="waves-effect">
+            <i class="<%= child.iconClass %>"></i>
+            <span> <%= child.name %> </span>
+            <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <% if (child.children !== undefined) {%>
+        <ul class="treeview-menu">
+            <%_.forEach( child.children, function ( sub ) {%>
+            <li>
+                <a
+                        href="javascript:void(0)"
+                        data-url="<%= sub.src %>"
+                        data-addtab="<%= (Math.random() + '').slice(2) %>"
+                        data-py="<%= sub.py%>"
+                        data-pinyin="<%= sub.pinyin%>"
+                        data-title="<%=sub.name%>">
+                    <i class="<%=sub.iconClass%>"></i>
+                    <%=sub.name%>
+                </a>
+            </li>
+            <%} )%>
+        </ul>
+        <%}%>
+    </li>
+    <%} )%>
+</ul>

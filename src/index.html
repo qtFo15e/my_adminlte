@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="dep/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="dep/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="dep/adminlte/AdminLTE.css">
+    <link rel="stylesheet" href="dep/adminlte/_all-skins.css">
+    <link rel="stylesheet" href="./common/css/nav_top.css">
+    <link rel="stylesheet" href="package/add-tabs/add-tabs.css">
+    <link rel="stylesheet" href="dep/waves/waves.min.css">
+
+
+    <style>
+        #tabCtn .tab-pane {
+            overflow: hidden;
+            padding: 0;
+        }
+
+        #tabCtn, #tabCtn .tab-pane, #tabCtn iframe {
+            height: 100%;
+            width: 100%;
+        }
+
+        .content-wrapper > .content-header {
+            position: absolute;
+            width: 100%;
+        }
+
+        .content-wrapper > .content {
+            padding-top: 0px;
+            height: 100%;
+            padding-right: 0
+        }
+        .nav-top > li{
+            float: left;
+            line-height: 30px;
+            /*height: 30px;*/
+            text-align: center;
+        }
+        .nav-top > li > a{
+            padding: 10px 30px;
+        }
+        .main-tab-wrapper{
+            background: #fafafa;
+            height: 50px;
+            border-bottom: solid 2px #2f4050;
+        }
+        .main-tab{
+            /*background: #e8edf0;*/
+            position: relative;
+            margin-bottom: 0;
+            padding-left: 0;
+        }
+        .main-tab>li{
+            float: left;
+            position: relative;
+            list-style: none;
+            position: relative;
+            line-height: 48px;
+
+            border-right: solid 1px #eee;
+        }
+        .main-tab>li.active{
+            background: #ececec;
+        }
+        .main-tab>li>a{
+            display: inline-block;
+            padding: 0 30px;
+        }
+    </style>
+
+    <script>
+    	// 配置文件路径
+        var require = {
+            config: {
+                jsurl: '../static/index/index',
+                baseurl: 'dep/',
+                menuData: [
+                    {
+                        name: '菜单一',
+                        sortId: "0",
+                        iconClass:'',
+                        active: 'active',
+                        children: [
+                            {
+                                name: 'ui组件',
+                                sortId: '0-0',
+                                iconClass: '',
+                                active: '',
+                                children: [
+                                    {
+                                        name: '按钮',
+                                        sortId: '0-0-0',
+                                        iconClass: '',
+                                        active: '',
+                                        src: 'static/button/button.html',
+                                    },
+                                    {
+                                        name: '表单',
+                                        iconClass: '',
+                                        sortId:'0-0-1',
+                                        active: '',
+                                        src: 'static/form/form.html',
+                                    }
+                                ]
+                            },
+                            {
+                                name: "数据表格",
+                                sortId: "0-1",
+                                iconClass: "",
+                                active: '',
+                                src: "static/datatable/datatable.html",
+                            }
+                        ]
+                    },
+                    {
+                        name: '菜单二',
+                        sortId: "1",
+                        iconClass:'',
+                        active: 'active',
+                        children: [
+                            {
+                                name: 'ui组件',
+                                sortId: '1-0',
+                                iconClass: '',
+                                active: '',
+                                children: [
+                                    {
+                                        name: '按钮1',
+                                        sortId: '1-0-0',
+                                        iconClass: '',
+                                        active: '',
+                                        src: 'static/button/button1.html',
+                                    },
+                                    {
+                                        name: '表单1',
+                                        iconClass: '',
+                                        sortId:'1-0-1',
+                                        active: '',
+                                        src: 'static/form/form1.html',
+                                    }
+                                ]
+                            },
+                            {
+                                name: "数据表格1",
+                                sortId: "1-1",
+                                iconClass: "",
+                                active: '',
+                                src: "static/datatable/datatable.html",
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    </script>
+    <script src="dep/jquery/jquery.js"></script>
+    <script src="dep/slimscroll/jquery.slimscroll.js"></script>
+    <script src="dep/adminlte/adminlte.js"></script>
+
+    <script src="dep/require/require.js" data-main="dep/require/require-config.js"></script>
+
+
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini fixed">
+<div class="wrapper" id="js-index">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="index2.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>A</b>LT</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Admin</b>LTE</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div id="nav" class="pull-left">
+                <div class="nav-top-ctn" id="js-nav-con">
+                </div>
+
+            </div>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 messages</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li><!-- start message -->
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+                                            </div>
+                                            <h4>
+                                                Support Team
+                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <!-- end message -->
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <!--<img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">-->
+                                            </div>
+                                            <h4>
+                                                AdminLTE Design Team
+                                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <!--<img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">-->
+                                            </div>
+                                            <h4>
+                                                Developers
+                                                <small><i class="fa fa-clock-o"></i> Today</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <!--<img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">-->
+                                            </div>
+                                            <h4>
+                                                Sales Department
+                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <!--<img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">-->
+                                            </div>
+                                            <h4>
+                                                Reviewers
+                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">See All Messages</a></li>
+                        </ul>
+                    </li>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+
+
+                            </li>
+                            <!-- Menu Body -->
+                            <li class="user-body">
+                                <div class="row">
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Followers</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Sales</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Friends</a>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar" style="">
+            <!-- Sidebar user panel -->
+            <div class="user-panel" style="display: none">
+                <div class="pull-left image">
+                    <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+                </div>
+                <div class="pull-left info">
+
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+            <!-- search form -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+
+            <div class="sidebar-menu-ctn" id="js-sidebar-menu">
+
+            </div>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="height: 10px">
+        <!-- Content Header (Page header) -->
+        <div class="main-tab-wrapper">
+            <ul id="js-tablist" class="main-tab js-main-tab clearfix ">
+
+            </ul>
+        </div>
+        <section class="content-header">
+
+            <!--<div class="col-md-4">-->
+                <!--<div id="tabpath-ctn" class="pull-right">-->
+                    <!--<ol class="breadcrumb ">-->
+                        <!--<li><a href="#">Home</a></li>-->
+                        <!--<li><a href="#">Library</a></li>-->
+                        <!--<li class="active">Data</li>-->
+                    <!--</ol>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<h1>-->
+            <!--Dashboard-->
+            <!--<small>Control panel</small>-->
+            <!--</h1>-->
+            <!--<ol class="breadcrumb">-->
+            <!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
+            <!--<li class="active">Dashboard</li>-->
+            <!--</ol>-->
+        </section>
+
+        <!-- Main content -->
+        <section class="content" style="">
+            <div id="tabCtn" class="tab-content" style="">
+
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.4.0
+        </div>
+        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+        reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li class=""><a href="#control-sidebar-setting-tab" data-toggle="tab" aria-expanded="false"><i
+                    class="fa fa-wrench"></i></a></li>
+            <li class=""><a href="#control-sidebar-home-tab" data-toggle="tab" aria-expanded="false"><i
+                    class="fa fa-home"></i></a></li>
+            <li class="active"><a href="#control-sidebar-settings-tab" data-toggle="tab" aria-expanded="true"><i
+                    class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Home tab content -->
+            <div class="tab-pane" id="control-sidebar-setting-tab">
+            </div>
+            <div class="tab-pane" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                <p>Will be 23 on April 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-user bg-yellow"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                                <p>New phone +1(800)555-1234</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                                <p>nora@example.com</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                <p>Execution time 5 seconds</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+                <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Custom Template Design
+                                <span class="label label-danger pull-right">70%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Update Resume
+                                <span class="label label-success pull-right">95%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Laravel Integration
+                                <span class="label label-warning pull-right">50%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Back End Framework
+                                <span class="label label-primary pull-right">68%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+            </div>
+            <!-- /.tab-pane -->
+            <!-- Stats tab content -->
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+            <!-- /.tab-pane -->
+            <!-- Settings tab content -->
+            <div class="tab-pane active" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">General Settings</h3>
+
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Allow mail redirect
+                            <input type="checkbox" class="pull-right" checked="">
+                        </label>
+
+                        <p>
+                            Other sets of options are available
+                        </p>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Expose author name in posts
+                            <input type="checkbox" class="pull-right" checked="">
+                        </label>
+
+                        <p>
+                            Allow the user to show his name in blog posts
+                        </p>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <!-- /.form-group -->
+                </form>
+            </div>
+            <!-- /.tab-pane -->
+        </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<script id="js-nav" type="text/html">
+
+    <ul class="nav nav-top">
+        <% _.forEach(data.nav, function ( child ) { %>
+        <li class="waves-effect js-nav-item" data-id="<%= child.sortId %>">
+            <a href="javascript:void(0)">
+                <i class="<%= child.iconClass %>"></i>
+                <span class="item-name"><%= child.name %></span>
+            </a>
+        </li>
+        <%})%>
+    </ul>
+
+</script>
+<script id="js-menu" type="text/html">
+    <ul class="sidebar-menu fadeIn animated" data-widget="tree">
+        <%var activedNav = _.find( data.nav, { sortId: data.id } )
+        _.forEach( activedNav.children, function ( child,childindex ) { %>
+        <li class="treeview <%=data.sortId[1]== child.sortId ?'active':''%>">
+            <%
+                <!-- 是否有子节点 -->
+                var haschildren = 'nochild';
+                if(child.children !== undefined){
+                    haschildren = 'haschild';
+                }
+            %>
+            <a href="javascript:void(0)"
+               class="js-<%=haschildren%>"
+               href="#<%= child.src %>"
+               data-url="<%= child.src %>"
+               data-addtab="<%= child.sortId%>"
+               data-py="<%= child.py%>"
+               data-pinyin="<%= child.pinyin%>"
+               data-title="<%=child.name%>"
+               class="waves-effect js-<%=haschildren%>">
+                <i class="<%= child.iconClass %>"></i>
+                <span> <%= child.name %> </span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <% if (child.children !== undefined) {%>
+            <ul class="treeview-menu js-treeview-menu">
+                <%_.forEach( child.children, function ( sub ,subindex) {%>
+                <%
+                    var treeclass = '';
+                    if(sub.children){
+                        treeclass = 'treeview';
+                    }
+                %>
+                <%console.log(data.sortId[2])%>
+                <li class="<%=treeclass%> <%=data.sortId[2]==sub.sortId?'active':''%>">
+                    <%
+                    <!-- 是否有子节点 -->
+                    var haschildren = 'nochild';
+                    if(sub.children !== undefined){
+                        haschildren = 'haschild';
+                    }
+                    %>
+                    <a      class="js-<%=haschildren%>"
+                            href="#<%= sub.src %>"
+                            data-url="<%= sub.src %>"
+                            data-addtab="<%= sub.sortId%>"
+                            data-py="<%= sub.py%>"
+                            data-pinyin="<%= sub.pinyin%>"
+                            data-title="<%=sub.name%>">
+                        <i class="<%=sub.iconClass%>"></i>
+                        <%=sub.name%>
+                    </a>
+                    <%if (sub.children !== undefined){%>
+                    <ul class="treeview-menu js-treeview-menu">
+                        <%_.forEach( sub.children, function ( third ,thirdindex) {%>
+                        <li class="<%=data.sortId[3]==third.sortId?'active':''%>">
+                            <a      class="js-nochild"
+                                    href="#<%= third.src%>"
+                                    data-url="<%= third.src %>"
+                                    data-addtab="<%= third.sortId%>"
+                                    data-py="<%= third.py%>"
+                                    data-pinyin="<%= third.pinyin%>"
+                                    data-title="<%=third.name%>">
+                                <i class="<%=third.iconClass%>"></i>
+                                <%=third.name%>
+                            </a>
+                        </li>
+                        <%} )%>
+                    </ul>
+                    <%}%>
+                </li>
+                <%} )%>
+            </ul>
+            <%}%>
+        </li>
+        <%} )%>
+    </ul>
+
+</script>
+<script id="js-nav-path" type="text/html">
+    <ol class="breadcrumb">
+        <% _.forEach( data.paths, function ( path ) { %>
+        <li><a href="javascript:void(0);"><%= path%></a></li>
+        <%} ) %>
+    </ol>
+</script>
+</body>
+</html>

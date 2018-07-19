@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>按钮</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+    <!-- Loading Bootstrap -->
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <script type="text/javascript">
+        var require = {
+            "config": {
+                'jsurl': '../static/form/form',
+                'baseurl': '../../dep/'
+            }
+        }
+    </script>
+</head>
+
+<body >
+
+<section class="tab-content-header">
+    <h4>
+        表单
+        <small>表单</small>
+    </h4>
+</section>
+<section class="content iframe-tab-content" id="js-form">
+    <div class="box-body">
+        <h2 class="page-header">
+            <i class="fa fa-globe"></i> 竖直表单
+            <small class="pull-right">Date: 2/10/2014</small>
+        </h2>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1">文本框</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">密码框</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label>下拉菜单演示</label>
+                <select class="form-control select2" style="width: 100%;">
+                    <option selected="selected">选中</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                </select>
+            </div>
+            <!-- /.form-group -->
+            <div class="form-group">
+                <label>禁用下拉菜单</label>
+                <select class="form-control select2" disabled="disabled" style="width: 100%;">
+                    <option selected="selected">Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                </select>
+            </div>
+            <!-- /.form-group -->
+            <div class="form-group">
+                <label>多选下拉菜单</label>
+                <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                        style="width: 100%;">
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                </select>
+            </div>
+
+            <div class="">
+                <label>复选框</label>
+                <div class="form-group">
+                    <label class="">
+                        <input type="checkbox" class="minimal" checked>
+                        选项一
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" class="minimal">
+                        选项二
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" class="minimal" disabled>
+                        禁用
+                    </label>
+                </div>
+            </div>
+
+            <div class="">
+                <label>单选框</label>
+                <div class="form-group">
+                    <label class="">
+                        <input type="radio" class="minimal" checked name="radioname">
+                        选项一
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" class="minimal" name="radioname">
+                        选项二
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" class="minimal" disabled>
+                        禁用
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="button button-primary button-small">提交</button>
+                <button class="button button-small">取消</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+        </div>
+
+    </div>
+    <div class="box-body">
+        <h2 class="page-header">
+            <i class="fa fa-globe"></i> 水平表单
+            <small class="pull-right"></small>
+        </h2>
+        <form action="" class="form-horizontal">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="col-sm-2 control-label">文本框</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control"  placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="col-sm-2 control-label">密码框</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">下拉菜单演示</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2" style="width: 100%;">
+                            <option selected="selected">选中</option>
+                            <option>Alaska</option>
+                            <option>California</option>
+                            <option>Delaware</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Washington</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">禁用下拉菜单</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2" disabled="disabled" style="width: 100%;">
+                            <option selected="selected">Alabama</option>
+                            <option>Alaska</option>
+                            <option>California</option>
+                            <option>Delaware</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Washington</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">多选下拉菜单</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                style="width: 100%;">
+                            <option>Alabama</option>
+                            <option>Alaska</option>
+                            <option>California</option>
+                            <option>Delaware</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Washington</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">复选框</label>
+                    <div class="col-sm-10">
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="minimal" checked>
+                                选项一
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="minimal">
+                                选项二
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="minimal" disabled>
+                                禁用
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">单选框</label>
+                    <div class="col-sm-10">
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input type="radio" class="minimal" checked name="radioname">
+                                选项一
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" class="minimal" name="radioname">
+                                选项二
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" class="minimal" disabled>
+                                禁用
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">日期选择</label>
+                    <div class="col-sm-10">
+                        <input id="js-date-picker" class="flatpickr flatpickr-input form-control" type="text" placeholder="Select Date.." readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">日期范围选择</label>
+                    <div class="col-sm-10">
+                        <input class="flatpickr flatpickr-input form-control js-range" type="text" placeholder="Select Date.." readonly="readonly">
+                    </div>
+                </div>
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button class="button button-primary button-small">提交</button>
+                    <button class="button button-small">取消</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </form>
+    </div>
+    <div class="box-body">
+        <h2 class="page-header">
+            <i class="fa fa-globe"></i> 内联筛选表单
+            <small class="pull-right"></small>
+        </h2>
+        <div class="col-sm-8">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="">名称</label>
+                    <input type="text" class="form-control"  placeholder="名称筛选">
+                </div>
+                <div class="form-group">
+                    <label for="">类型筛选</label>
+                    <select class="form-control select2">
+                        <option selected="selected">选中</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">专业筛选</label>
+                    <select class="form-control select2">
+                        <option selected="selected">选中</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">课程筛选</label>
+                    <select class="form-control select2">
+                        <option selected="selected">选中</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">学校筛选</label>
+                    <select class="form-control select2">
+                        <option selected="selected">选中</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">日期</label>
+                    <input class="flatpickr flatpickr-input form-control js-sort-date" type="text" placeholder="Select Date.." readonly="readonly">
+                    <label for="">至</label>
+                    <input class="flatpickr flatpickr-input form-control js-sort-date" type="text" placeholder="Select Date.." readonly="readonly">
+                </div>
+                <div class="form-group">
+                    <label class="">范围选择</label>
+                    <input class="flatpickr flatpickr-input form-control js-range"  type="text" placeholder="Select Date.." readonly="readonly">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control"  placeholder="Enter email">
+                    <button class="button button-primary button-small">搜索</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="../../dep/require/require.js" data-main="../../dep/require/require-config.js"></script>
+</body>
+</html>
